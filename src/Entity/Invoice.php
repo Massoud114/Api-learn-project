@@ -13,9 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiResource(
  *     subresourceOperations={
  *     		"api_customers_invoices_get_subresource" = {
- *	 		"normalization_context"={"groups"={"invoices_subresource"}}
- *	 	}
- *	 },
+ *	 			"normalization_context"={"groups"={"invoices_subresource"}}
+ *	 		}
+ *		 },
  *     itemOperations={"GET", "PUT", "DELETE", "increment" = {
  *     			"method" = "post",
  *     			"path" = "/invoices/{id}/increment",
@@ -26,6 +26,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  *	 			}
  * 			}
  *     },
+ *     attributes={
+			"pagination_enabled"=false,
+	 *     	"pagination_items_per_page"=20,
+	 *     	"order": {"sentAt":"desc"}
+ *	 	},
  *     normalizationContext={"groups"={"invoices_read"}},
  *     denormalizationContext={"disable_type_enforcement"=true}
  * )
