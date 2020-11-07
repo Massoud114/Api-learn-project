@@ -36,7 +36,7 @@ function setAxiosToken(token) {
 
 
 /**
- * Mise ne place lors du chargement
+ * Mise en place lors du chargement
  */
 function setup() {
 	// Vérification de présence de token

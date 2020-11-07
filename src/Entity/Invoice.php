@@ -56,8 +56,6 @@ class Invoice
     /**
      * @ORM\Column(type="datetime")
 	 * @Groups({"invoices_read", "invoices_subresource"})
-	 * @Assert\DateTime(message="La date doit etre au format YYYY-MM-DD")
-	 * @Assert\NotBlank(message="La date d'envoie doit etre renseignée")
 	 */
     private $sentAt;
 
@@ -84,6 +82,11 @@ class Invoice
 	 * @Assert\Type(type="integer", message="Le chrono doit etre un nombre !")
 	 */
     private $chrono;
+
+    public function __construct()
+	{
+		$this->sentAt = new \DateTime();
+	}
 
 	/**
 	 * Renvoie l'utilisateur à qui appartient la facture
